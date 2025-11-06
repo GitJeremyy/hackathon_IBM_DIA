@@ -37,7 +37,7 @@ table = db.open_table("qa_table")
 model = SentenceTransformer("intfloat/multilingual-e5-base")
 
 
-def search_question(question: str, school: str, top_k: int = 3):
+def search_question(question: str, school: str, language: str, top_k: int = 3):
     """
     Search for the most similar questions in LanceDB for a given school.
 
@@ -53,10 +53,14 @@ def search_question(question: str, school: str, top_k: int = 3):
     query_vec = model.encode(question)
 
     # Retrieve the 20 most similar questions
-    results = table.search(query_vec, vector_column_name="question_embedding").limit(20).to_pandas()
+    results = table.search(query_vec, vector_column_name="question_embedding").limit(30).to_pandas()
 
     # Filter results by school (the column contains strings like "esilv,emlv")
     mask = results["ecole"].str.lower().str.contains(school.lower())
+    filtered = results[mask].head(top_k)
+
+    # Filter results by language (the column contains strings like "Français,Anglais")
+    mask = results["langue"].str.lower().str.contains(language.lower())
     filtered = results[mask].head(top_k)
 
     if filtered.empty:
