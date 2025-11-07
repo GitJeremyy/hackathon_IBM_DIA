@@ -20,3 +20,6 @@ Thumbs.db
 /source/.env
 
 /lancedb_questions/
+
+assistant_responses.json/
+response.json/
