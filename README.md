@@ -233,7 +233,7 @@ Title;Content;Écoles;Langues
 pip list
 
 # Réinstaller les dépendances
-pip install streamlit pandas lancedb sentence-transformers ibm-watsonx-ai langdetect
+pip install streamlit pandas lancedb sentence-transformers ibm-watsonx-ai langdetect dotenv
 ```
 
 ### Problème : Erreur d'encodage CSV

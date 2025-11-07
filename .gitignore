@@ -18,3 +18,5 @@ Thumbs.db
 # ...existing code...
 .env
 /source/.env
+
+/lancedb_questions/

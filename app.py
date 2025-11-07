@@ -72,7 +72,7 @@ st.title("🎓 HelpAI")
 if st.session_state.school_selected is None:
     st.markdown("## Welcome! Please select your school:")
     
-    col1, col2 = st.columns(2)
+    col1, col2, col3, col4 = st.columns(4)
     
     with col1:
         if st.button("🏫 ESILV", use_container_width=True, type="primary"):
@@ -82,6 +82,16 @@ if st.session_state.school_selected is None:
     with col2:
         if st.button("🏢 EMLV", use_container_width=True, type="primary"):
             st.session_state.school_selected = "emlv"
+            st.rerun()
+
+    with col3:
+        if st.button("🏫 IIM", use_container_width=True, type="primary"):
+            st.session_state.school_selected = "iim"
+            st.rerun()
+    
+    with col4:
+        if st.button("🏢 Executive", use_container_width=True, type="secondary"):
+            st.session_state.school_selected = "executive"
             st.rerun()
 
 # Chat Phase
