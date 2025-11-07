@@ -96,7 +96,7 @@ REGION = "eu-de"  # ou votre région
 Le fichier CSV doit contenir les colonnes suivantes :
 - `Title` - Question
 - `Content` - Réponse
-- `Écoles` - École(s) concernée(s) (esilv, emlv)
+- `Écoles` - École(s) concernée(s) (esilv, emlv, iim, executive)
 - `Langues` - Langue(s) (Français, English)
 
 ```bash
@@ -301,5 +301,6 @@ Projet développé par l'équipe du Hackathon IBM DIA - Groupe 8
 ---
 
 **Made with ❤️ for students and executives**
+
 
 
