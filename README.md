@@ -17,7 +17,7 @@ Le projet combine :
 ✅ **Sélection d'école** - Choisissez entre ESILV et EMLV  
 ✅ **Questions-réponses contextuelles** - Recherche vectorielle dans une base de connaissances  
 ✅ **Détection automatique de langue** - Répond dans la langue de la question  
-✅ **Génération IA** - Utilise Llama-3 via IBM Watsonx pour des réponses naturelles  
+✅ **Génération IA** - Utilise MistralAI via IBM Watsonx pour des réponses naturelles  
 ✅ **Historique de conversation** - Suivi complet de l'échange  
 ✅ **Système de feedback** - Évaluation par étoiles et commentaires  
 ✅ **Interface moderne** - Design responsive avec CSS personnalisé  
@@ -58,7 +58,7 @@ hackathon_IBM_DIA/
 
 1. **Cloner le repository**
 ```bash
-git clone https://github.com/GitJeremyy/hackathon_IBM_DIA.git
+git clone https://github.com/Saji-ar/hackathon_IBM_DIA.git
 cd hackathon_IBM_DIA
 ```
 
@@ -75,7 +75,7 @@ source venv/bin/activate
 
 3. **Installer les dépendances**
 ```bash
-pip install streamlit pandas lancedb sentence-transformers ibm-watsonx-ai langdetect
+pip install streamlit pandas lancedb sentence-transformers ibm-watsonx-ai langdetect dotenv
 ```
 
 4. **Configuration IBM Watsonx**
@@ -129,7 +129,7 @@ L'application sera accessible sur `http://localhost:8501`
 
 ### Workflow utilisateur
 
-1. **Sélection de l'école** - Choisir ESILV ou EMLV
+1. **Sélection de l'école** - Choisir ESILV, EMLV, IIM ou Executif
 2. **Conversation** - Poser des questions en français ou anglais
 3. **Réponses IA** - Le chatbot répond en utilisant la base de connaissances
 4. **Fermeture** - Clôturer la conversation
@@ -137,7 +137,7 @@ L'application sera accessible sur `http://localhost:8501`
 
 ### Exemple de questions
 
-**ESILV (Français)**
+**ESILV IIM ou Executive (Français)**
 - "Combien d'absences sont autorisées ?"
 - "Comment fonctionne le système de notation ?"
 - "Quels sont les horaires de la bibliothèque ?"
@@ -174,7 +174,7 @@ Réponse finale à l'utilisateur
 ### Modèles utilisés
 
 - **Embeddings** : `intfloat/multilingual-e5-base` (768 dimensions)
-- **LLM** : `meta-llama/llama-3-3-70b-instruct` (IBM Watsonx)
+- **LLM** : `MistralAI/mistralai-medium-2505` (IBM Watsonx)
 - **Détection de langue** : `langdetect`
 
 ### Base de données vectorielle
@@ -183,7 +183,7 @@ Réponse finale à l'utilisateur
 - **Colonnes** :
   - `question` + `question_embedding` (768D)
   - `answer` + `answer_embedding` (768D)
-  - `ecole` (esilv, emlv)
+  - `ecole` (esilv, emlv, iim, executive)
   - `langue` (Français, English)
 
 ---
@@ -218,8 +218,8 @@ params = {
 
 ```csv
 Title;Content;Écoles;Langues
-"Combien d'absences sont autorisées?";"Vous avez droit à 3 absences justifiées par semestre.";esilv,emlv;Français
-"How many absences are allowed?";"You are allowed 3 justified absences per semester.";esilv,emlv;English
+"Combien d'absences sont autorisées?";"Vous avez droit à 3 absences justifiées par semestre.";esilv,emlv,iim,executive;Français
+"How many absences are allowed?";"You are allowed 3 justified absences per semester.";esilv,emlv,iim,executive;English
 ```
 
 ---
@@ -279,31 +279,6 @@ python source/test.py
 
 ---
 
-## 📈 Améliorations futures
-
-- [ ] Authentification utilisateur
-- [ ] Base de données PostgreSQL pour les feedbacks
-- [ ] Support de fichiers PDF/DOCX
-- [ ] Cache des réponses fréquentes
-- [ ] Analytics et dashboards
-- [ ] API REST
-- [ ] Déploiement Docker
-- [ ] CI/CD avec GitHub Actions
-
----
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues ! Processus :
-
-1. Fork le projet
-2. Créer une branche (`git checkout -b feature/AmazingFeature`)
-3. Commit (`git commit -m 'Add AmazingFeature'`)
-4. Push (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
-
----
-
 ## 📄 Licence
 
 Ce projet a été développé dans le cadre du **Hackathon IBM DIA**.
@@ -312,7 +287,7 @@ Ce projet a été développé dans le cadre du **Hackathon IBM DIA**.
 
 ## 👥 Équipe
 
-Projet développé par l'équipe du Hackathon IBM DIA - Groupe A5
+Projet développé par l'équipe du Hackathon IBM DIA - Groupe 8
 
 ---
 
@@ -325,13 +300,6 @@ Projet développé par l'équipe du Hackathon IBM DIA - Groupe A5
 
 ---
 
-## 📞 Support
+**Made with ❤️ for students and executives**
 
-Pour toute question ou problème :
-- Ouvrir une issue sur GitHub
-- Contacter l'équipe via : **kryptosphere@devinci.fr**
-
----
-
-**Made with ❤️ for ESILV & EMLV students**
 
