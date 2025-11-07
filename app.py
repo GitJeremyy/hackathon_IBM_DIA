@@ -18,7 +18,7 @@ if 'clear_user_input' not in st.session_state:
     st.session_state.clear_user_input = False
 
 # Page config
-st.set_page_config(page_title="School Assistant Chatbot", page_icon="🎓", layout="wide")
+st.set_page_config(page_title="HelpAI", page_icon="🎓", layout="wide")
 
 # Custom CSS for better styling
 st.markdown("""
@@ -66,7 +66,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Title
-st.title("🎓 School Assistant Chatbot")
+st.title("🎓 HelpAI")
 
 # School Selection Phase
 if st.session_state.school_selected is None:
